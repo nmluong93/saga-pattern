@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "8419f699-09bb-4038-82be-5f73657ba49a",
+		"name": "Saga Spring boot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13597793",
+		"_collection_link": "https://interstellar-water-489557.postman.co/workspace/AdN~f40854f5-1733-4edf-9ed5-8b2a964246c7/collection/13597793-8419f699-09bb-4038-82be-5f73657ba49a?action=share&source=collection_link&creator=13597793"
+	},
+	"item": [
+		{
+			"name": "Debit Account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Successfully transfer",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Failed transfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"transferId\": \"FAILED-CREDIT\",\n    \"fromAccount\": \"A\",\n    \"toAccount\":\"C\",\n    \"amount\": 20.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/transfer",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
