@@ -30,9 +30,9 @@ public class AccountStore {
                 Double updated = balance - amount;
                 updateBalance(acct, updated);
                 return true;
-            } else {
-                return false;
             }
+            return false;
+
         }
     }
 

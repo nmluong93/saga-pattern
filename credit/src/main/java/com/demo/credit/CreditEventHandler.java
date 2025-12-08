@@ -4,20 +4,17 @@ import com.demo.credit.events.CreditCompleted;
 import com.demo.credit.events.CreditFailed;
 import com.demo.credit.events.DebitCompleted;
 import com.demo.credit.service.AccountStore;
+import lombok.AllArgsConstructor;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
+@AllArgsConstructor
 public class CreditEventHandler {
 
     private final RabbitTemplate rabbitTemplate;
     private final AccountStore accountStore;
-
-    public CreditEventHandler(RabbitTemplate rabbitTemplate, AccountStore accountStore){
-        this.rabbitTemplate = rabbitTemplate;
-        this.accountStore = accountStore;
-    }
 
     @RabbitListener(queues = RabbitMQConfig.QUEUE_DEBIT_COMPLETED)
     public void handleDebitCompleted(DebitCompleted event) {
